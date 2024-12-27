@@ -1,3 +1,5 @@
 <script>
-document.body.innerHTML += '<iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>';
+setInterval(function() {
+    alert('This is an XSS alert that appears every 5 seconds!');
+}, 5000);
 </script>
