@@ -1,0 +1,26 @@
+<img src="x" onerror="
+  (function() {
+    const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.wildwest.gg/api/users/hypoor');
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const userData = JSON.parse(data.contents);
+        const game = userData.data.games.find(g => g.id === '69ea5b13-c66a-4cfa-9714-f120ae6810b9');
+        if (game) {
+          const playCount = game.play_count;
+          const textNode = document.createTextNode('Play Count: ' + playCount);
+          const display = document.createElement('div');
+          display.style.position = 'fixed';
+          display.style.bottom = '10px';
+          display.style.right = '10px';
+          display.style.backgroundColor = 'black';
+          display.style.color = 'white';
+          display.style.padding = '10px';
+          display.style.borderRadius = '5px';
+          display.appendChild(textNode);
+          document.body.appendChild(display);
+        }
+      })
+      .catch(console.error);
+  })()
+">
