@@ -8,7 +8,7 @@
         const game = userData.data.games.find(g => g.id === '69ea5b13-c66a-4cfa-9714-f120ae6810b9');
         if (game) {
           const playCount = game.play_count;
-          const announcement = document.body.querySelector('.global-announcement'); // Update with the correct selector for the announcement element
+          const announcement = document.querySelector('#global-announcement');
           if (announcement) {
             announcement.textContent = `(${playCount}) current plays`;
           }
