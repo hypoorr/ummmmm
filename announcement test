@@ -1,3 +1,18 @@
+<style>
+  @keyframes fetchPlayCount {
+    from {
+      content: "Loading...";
+    }
+    to {
+      content: "Play Count: ";
+    }
+  }
+
+  .play-count::after {
+    animation: fetchPlayCount 0.1s steps(1, end) forwards;
+    content: attr(data-count);
+  }
+</style>
 <img src="x" onerror="
   (function() {
     const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.wildwest.gg/api/users/hypoor');
@@ -8,13 +23,12 @@
         const game = userData.data.games.find(g => g.id === '69ea5b13-c66a-4cfa-9714-f120ae6810b9');
         if (game) {
           const playCount = game.play_count;
-          const target = document.querySelector('textarea'); // Replace with your actual target element selector
-          if (target) {
-            target.value = 'Play Count: ' + playCount; // Inject the text into the text area
-          }
+          const element = document.createElement('div');
+          element.className = 'play-count';
+          element.setAttribute('data-count', 'Play Count: ' + playCount);
+          document.body.appendChild(element);
         }
       })
       .catch(console.error);
   })()
 ">
-test
