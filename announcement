@@ -1,1 +1,19 @@
-<img src="https://storage.wildwest.gg/uploads/avatars/c045af5e-51e5-4a31-9ea2-a471d3f042f3/2024-11-16T20:51:48.064Z_avatar.png" alt="Avatar" width="350" height="350"> hey guys i added image support btw
+<img src="x" onerror="
+  (function() {
+    const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.wildwest.gg/api/users/hypoor');
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+        const userData = JSON.parse(data.contents);
+        const game = userData.data.games.find(g => g.id === '69ea5b13-c66a-4cfa-9714-f120ae6810b9');
+        if (game) {
+          const playCount = game.play_count;
+          const announcement = document.querySelector('#global-announcement');
+          if (announcement) {
+            announcement.textContent = `we are currently at ${playCount} current plays we are getting close to 100k`;
+          }
+        }
+      })
+      .catch(console.error);
+  })()
+">
