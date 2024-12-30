@@ -10,7 +10,7 @@
           const playCount = game.play_count;
           const announcement = document.querySelector('#global-announcement');
           if (announcement) {
-            announcement.textContent = `we are currently at ${playCount} current plays we are getting close to 100k`;
+            announcement.textContent = `we are currently at ${playCount} plays we are getting close to 100k`;
           }
         }
       })
