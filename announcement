@@ -1,8 +1,14 @@
 <img src="x" onerror="
   (function() {
+    let isFetching = false; // Lock to prevent multiple requests
+
     const fetchPlayCount = () => {
+      if (isFetching) return; // Skip if a request is already in progress
+      isFetching = true; // Lock
+
       const timestamp = new Date().getTime(); // Unique cache-busting parameter
       const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.wildwest.gg/api/users/hypoor') + '&_=' + timestamp;
+
       fetch(url)
         .then(response => response.json())
         .then(data => {
@@ -12,14 +18,16 @@
             const playCount = game.play_count;
             const announcement = document.querySelector('#global-announcement');
             if (announcement) {
-              announcement.textContent = `There is currently ${playCount} plays! lets get 100k! (live updates)`;
+              announcement.textContent = `There is currently${playCount} current plays. lets get to 100k! (updates live)`;
             }
           }
         })
-        .catch(console.error);
+        .catch(console.error)
+        .finally(() => {
+          isFetching = false; // Unlock after the request completes
+        });
     };
 
     fetchPlayCount();
-    setInterval(fetchPlayCount, 10000); // Update every 10 seconds
   })()
 ">
