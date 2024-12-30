@@ -1,19 +1,25 @@
 <img src="x" onerror="
   (function() {
-    const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.wildwest.gg/api/users/hypoor');
-    fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        const userData = JSON.parse(data.contents);
-        const game = userData.data.games.find(g => g.id === '69ea5b13-c66a-4cfa-9714-f120ae6810b9');
-        if (game) {
-          const playCount = game.play_count;
-          const announcement = document.querySelector('#global-announcement');
-          if (announcement) {
-            announcement.textContent = `we are currently at ${playCount} plays we are getting close to 100k`;
+    const fetchPlayCount = () => {
+      const timestamp = new Date().getTime(); // Unique cache-busting parameter
+      const url = 'https://api.allorigins.win/get?url=' + encodeURIComponent('https://www.wildwest.gg/api/users/hypoor') + '&_=' + timestamp;
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const userData = JSON.parse(data.contents);
+          const game = userData.data.games.find(g => g.id === '69ea5b13-c66a-4cfa-9714-f120ae6810b9');
+          if (game) {
+            const playCount = game.play_count;
+            const announcement = document.querySelector('#global-announcement');
+            if (announcement) {
+              announcement.textContent = `$There is currently {playCount} plays! lets get 100k! (live updates)`;
+            }
           }
-        }
-      })
-      .catch(console.error);
+        })
+        .catch(console.error);
+    };
+
+    fetchPlayCount();
+    setInterval(fetchPlayCount, 10000); // Update every 10 seconds
   })()
 ">
