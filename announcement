@@ -15,10 +15,10 @@
           const userData = JSON.parse(data.contents);
           const game = userData.data.games.find(g => g.id === '69ea5b13-c66a-4cfa-9714-f120ae6810b9');
           if (game) {
-            const playCount = game.play_count;
+            const playCount = game.denormalized_vote_count;
             const announcement = document.querySelector('#global-announcement');
             if (announcement) {
-              announcement.textContent = `There is currently ${playCount} plays. lets get to 100k! (updates live)`;
+              announcement.textContent = `There is currently ${playCount} upvotes. LETS GO FOR 2K BEFORE END OF JANUARY! (updates live)`;
             }
           }
         })
