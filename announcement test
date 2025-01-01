@@ -1,6 +1,16 @@
 <iframe srcdoc="
+  <style>
+    body {
+      margin: 0;
+      border: none;
+      background: transparent;
+      color: inherit;
+      font-family: inherit;
+      font-size: inherit;
+    }
+  </style>
   <script>
     parent.document.getElementById('roll-button').style.display = 'none';
   </script>
-"></iframe>
-i hope no one liked rolling
+  Your text here.
+" style="border: none; width: 100%; height: auto;"></iframe>
