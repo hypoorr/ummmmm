@@ -15,7 +15,7 @@
       parent.document.getElementById('roll-button').style.display = 'none';
 
       // Inject dynamic content into #global-announcement
-      parent.document.querySelector('#global-announcement').textContent = 'This is the injected announcement text that follows the global announcement format.';
+      parent.document.querySelector('#global-announcement').textContent = 'i hope no one liked the roll button';
     </script>
   " style="display:none;"></iframe>
 </body>
