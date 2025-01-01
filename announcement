@@ -43,7 +43,6 @@
       fetchPlayCount();
 
       // Refresh the data every 60 seconds
-      setInterval(fetchPlayCount, 60000);
     })()
   " style="display:none;"></iframe>
 </body>
