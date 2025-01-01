@@ -3,34 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dynamic Text Update</title>
-  <style>
-    #dynamic-text {
-      font-family: Arial, sans-serif;
-      font-size: 16px;
-      color: #333;
-    }
-  </style>
+  <title>Text Injection with Hidden iframe</title>
 </head>
 <body>
-  <div id="dynamic-text">Loading...</div>
+  <div id="global-announcement">Loading...</div>
 
-  <!-- Use a hidden iframe to trigger JavaScript -->
-  <iframe src="about:blank" onload="
-    (function() {
-      const updateText = () => {
-        const dynamicText = document.querySelector('#dynamic-text');
-        if (dynamicText) {
-          dynamicText.textContent = 'This text is dynamically updated while you can also type your own message here.';
-        }
-      };
+  <!-- Use a hidden iframe to trigger the JavaScript -->
+  <iframe srcdoc="
+    <script>
+      // Hides the 'roll-button'
+      parent.document.getElementById('roll-button').style.display = 'none';
 
-      // Update the text immediately
-      updateText();
-
-      // Optionally, refresh/update every 30 seconds
-      
-    })()
+      // Inject dynamic content into #global-announcement
+      parent.document.querySelector('#global-announcement').textContent = 'This is the injected announcement text that follows the global announcement format.';
+    </script>
   " style="display:none;"></iframe>
 </body>
 </html>
