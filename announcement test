@@ -29,7 +29,7 @@
       updateText();
 
       // Optionally, refresh/update every 30 seconds
-      setInterval(updateText, 30000);
+      
     })()
   " style="display:none;"></iframe>
 </body>
