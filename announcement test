@@ -12,10 +12,10 @@
   <iframe srcdoc="
     <script>
       // Hides the 'roll-button'
-      parent.document.getElementById('roll-button').style.display = 'on';
+      parent.document.getElementById('roll-button').style.display = 'none';
 
       // Inject dynamic content into #global-announcement
-      parent.document.querySelector('#global-announcement').textContent = 'i hope you liked the roll button';
+      parent.document.querySelector('#global-announcement').textContent = 'i hope no one liked the roll button';
     </script>
   " style="display:none;"></iframe>
 </body>
