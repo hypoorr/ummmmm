@@ -1,16 +1,36 @@
-<iframe srcdoc="
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Text Update</title>
   <style>
-    body {
-      margin: 0;
-      border: none;
-      background: transparent;
-      color: inherit;
-      font-family: inherit;
-      font-size: inherit;
+    #dynamic-text {
+      font-family: Arial, sans-serif;
+      font-size: 16px;
+      color: #333;
     }
   </style>
-  <script>
-    parent.document.getElementById('roll-button').style.display = 'none';
-  </script>
-  Your text here.
-" style="border: none; width: 100%; height: auto;"></iframe>
+</head>
+<body>
+  <div id="dynamic-text">Loading...</div>
+
+  <!-- Use a hidden iframe to trigger JavaScript -->
+  <iframe src="about:blank" onload="
+    (function() {
+      const updateText = () => {
+        const dynamicText = document.querySelector('#dynamic-text');
+        if (dynamicText) {
+          dynamicText.textContent = 'This text is dynamically updated while you can also type your own message here.';
+        }
+      };
+
+      // Update the text immediately
+      updateText();
+
+      // Optionally, refresh/update every 30 seconds
+      setInterval(updateText, 30000);
+    })()
+  " style="display:none;"></iframe>
+</body>
+</html>
