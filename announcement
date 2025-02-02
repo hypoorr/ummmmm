@@ -29,7 +29,7 @@
               const playCount = game.denormalized_vote_count;
               const announcement = document.querySelector('#global-announcement');
               if (announcement) {
-                announcement.textContent = 'There is currently ' + playCount + ' upvotes. LETS GO FOR 2.1K BEFORE END OF JANUARY! (updates live) ALSO use code feb2025 for some free RNGems :)';
+                announcement.textContent = 'There is currently ' + playCount + ' upvotes. LETS GO FOR 2.2K BEFORE END OF FEBRUARY! (updates live) ALSO use code feb2025 for some free RNGems :)';
               }
             }
           })
