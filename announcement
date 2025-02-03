@@ -29,7 +29,7 @@
               const playCount = game.denormalized_vote_count;
               const announcement = document.querySelector('#global-announcement');
               if (announcement) {
-                announcement.textContent = 'There is currently ' + playCount + ' upvotes. LETS GO FOR 2.2K BEFORE END OF FEBRUARY! (updates live) ALSO check out my new game Pets Clash! you should see it on the front page hopefully';
+                announcement.textContent = 'There is currently ' + playCount + ' upvotes. LETS GO FOR 2.2K BEFORE END OF FEBRUARY! (updates live) ALSO check out my new game Pets Clash! you should see it in the what beats rock section';
               }
             }
           })
